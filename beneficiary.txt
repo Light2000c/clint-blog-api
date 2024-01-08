@@ -1,0 +1,185 @@
+Beneficiary documentation
+
+Airtime Beneficiary
+
+APIAirtimeBeneficiaryV3.asp?
+
+Save payload
+{
+customerName: “clinton”,
+customerId: “08128161958”,
+network: “01”,
+}
+
+Delete Payload 
+{
+customerId: “08128161958”,
+}
+
+
+
+
+
+Databundle Beneficiary
+
+APIDatabundleBeneficiaryV3.asp?
+
+Save payload
+{
+customerName: “clinton”,
+customerId: “08128161958”,
+network: “01”,
+}
+
+Delete Payload 
+{
+customerId: “08128161958”,
+}
+
+
+
+Spectranet Beneficiary
+
+APISpectranetBeneficiaryV3.asp?
+
+Save payload
+{
+customerName: “clinton”,
+customerId: “08128161958”,
+network: “spectra net”,
+}
+
+Delete Payload 
+{
+customerId: “08128161958”,
+}
+
+
+
+
+Smile Beneficiary
+
+APISmileBeneficiaryV3.asp?
+
+Save payload
+{
+customerName: “clinton”,
+customerId: “08128161958”,
+network: “smile”,
+}
+
+Delete Payload 
+{
+customerId: “08128161958”,
+}
+
+
+
+CableTv Beneficiary
+
+APICableTvBeneficiaryV3.asp?
+
+Save payload
+{
+customerName: “Nicholas Nicholas”,
+customerId: “4601519074”,
+cableTv= “gotv”
+}
+
+Delete Payload 
+{
+customerId: “4601519074”,
+}
+
+
+
+
+Electricity Beneficiary
+
+APIElectricityBeneficiaryV3.asp?
+
+Save payload
+{
+customerName: “Nicholas Nicholas”,
+customerId: “45096122689”,
+electricityCompany: “07”,
+meterType: “07”
+}
+
+Delete Payload 
+{
+customerId: “45096122689”,
+}
+
+
+
+
+Betting Beneficiary
+
+APIBettingBeneficiaryV3.asp?
+
+Save payload
+{
+customerName: “Nicholas Nicholas”,
+customerId: “18583101”,
+bettingCompany: “bet9ja”,
+}
+
+Delete Payload 
+{
+customerId: “18583101”,
+}
+
+
+
+
+WAEC Beneficiary
+
+APIWaecBeneficiaryV3.asp?
+
+Save payload
+{
+customerName: “Nicholas Nicholas”,
+customerId: “08128161958”,
+examType: “waecDirect”,
+}
+
+Delete Payload 
+{
+customerId: “08128161958”,
+}
+
+
+JAMB Beneficiary
+
+APIJambBeneficiaryV3.asp
+
+Save payload
+{
+customerName: “Nicholas Nicholas”,
+customerId: “08128161958”,
+profileId: “”,
+}
+
+Delete Payload 
+{
+customerId: “08128161958”,
+}
+
+
+
+
+Transfer Beneficiary
+
+APITransferBeneficiaryV3.asp?
+
+Save payload
+{
+customerName: “Clinton”,
+customerId: “08128161958”,
+}
+
+Delete Payload 
+{
+customerId: “08128161958”,
+}
