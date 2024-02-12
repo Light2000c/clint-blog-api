@@ -12,21 +12,26 @@ module.exports = {
                 callBack(err);
             }
 
-            return callBack(null,results);
+            return callBack(null, results);
         });
     },
 
     getUserByID: (id, callBack) => {
 
-        pool.query('SELECT * FROM users WHERE id = ?', [id], (err, results) => {
+        try {
+            pool.query('SELECT * FROM users WHERE id = ?', [id], (err, results) => {
 
-            if (err) {
-                console.log(err);
-                callBack(err);
-            }
+                if (err) {
+                    console.log(err);
+                    return callBack(err);
+                }
 
-            return callBack(null,results);
-        });
+                return callBack(null, results[0]);
+            });
+
+        } catch (error) {
+            console.log(error);
+        }
 
     },
 
@@ -39,7 +44,20 @@ module.exports = {
                 callBack(err);
             }
 
-            return callBack(null,results);
+            return callBack(null, results);
+        });
+    },
+
+    updatePassword: (data, callBack) => {
+
+        pool.query('UPDATE users set password = ? where id = ?', [data.password, data.id], (err, results) => {
+
+            if (err) {
+                console.log(err);
+                callBack(err);
+            }
+
+            return callBack(null, results);
         });
     },
 
@@ -52,11 +70,11 @@ module.exports = {
                 callBack(err);
             }
 
-            return callBack(null,results);
+            return callBack(null, results);
         });
     },
 
-        getUserByEmail: (email, callBack) => {
+    getUserByEmail: (email, callBack) => {
 
         pool.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
 

@@ -1,6 +1,6 @@
-const { createUser, getUsers, deleteUser } = require('../services/user.service');
+const { createUser, getUsers, deleteUser, getUserByID, getUserByEmail, updatePassword } = require('../services/user.service');
 
-const { hashSync, genSaltSync } = require('bcrypt');
+const { hashSync, genSaltSync, compareSync } = require('bcrypt');
 
 module.exports = {
 
@@ -53,6 +53,70 @@ module.exports = {
         });
     },
 
+
+    updatePassword: (req, res) => {
+
+        const body = req.body;
+        console.log("body ==> ", body);
+
+        getUserByID(body.id, (err, results) => {
+
+            if (err) {
+                console.log(err);
+                return;
+            }
+
+            if (!results) {
+                return res.json({
+                    status: 'failed',
+                    message: 'User not found',
+                });
+            }
+
+            confirmPassword = compareSync(body.old_password, results.password);
+
+            if (!confirmPassword) {
+                return res.json({
+                    status: 'failed',
+                    message: 'Password doesn\'t match',
+                });
+            }
+
+            let salt = genSaltSync(10);
+
+            let password = hashSync(body.new_password, salt);
+
+            body.password = password;
+
+            updatePassword(body, (err, results) => {
+
+                if(err){
+                    console.log(err);
+                    return;
+                }
+
+                console.log(results);
+
+                if(results.affectedRows <= 0){
+                    return res.json({
+                        status: 'failed',
+                        message: 'Password was not successfully updated.',
+                    });
+                }
+
+                return res.json({
+                    status: "success",
+                    message: "password has been successfully updated",
+                });
+
+            });
+
+        });
+
+    },
+
+
+
     deleteUser: (req, res) => {
 
         let id = req.body.id;
@@ -80,5 +144,5 @@ module.exports = {
         });
     }
 
-    
+
 }

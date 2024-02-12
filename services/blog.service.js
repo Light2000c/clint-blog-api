@@ -84,7 +84,7 @@ module.exports = {
 
     updatePost: (data, callBack) => {
 
-        // try {
+        try {
         pool.query(`UPDATE posts set title = ?, category = ?, image= ?, description = ? Where id = ?`,
             [data.title, data.category, data.image, data.description, data.id, data.created_by], (err, results) => {
 
@@ -96,15 +96,15 @@ module.exports = {
                 console.log(results);
                 return callBack(null, results);
             });
-        // } catch (error) {
-        //     console.log(error);
-        // }
+        } catch (error) {
+            console.log(error);
+        }
 
     },
 
     updatePostWithoutImage: (data, callBack) => {
 
-        // try {
+        try {
         pool.query(`UPDATE posts set title = ?, category = ?, description = ? Where id = ?`,
             [data.title, data.category, data.description, data.id], (err, results) => {
 
@@ -116,9 +116,9 @@ module.exports = {
                 console.log(results);
                 return callBack(null, results);
             });
-        // } catch (error) {
-        //     console.log(error);
-        // }
+        } catch (error) {
+            console.log(error);
+        }
 
     },
 

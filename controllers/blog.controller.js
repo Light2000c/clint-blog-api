@@ -5,12 +5,12 @@ const path = require('path');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, '../uploads/'),
+    destination: path.join(__dirname, '../public/uploads/'),
     filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     },
     fileFilter: function (req, file, cb) {
-        fileFilter(file, cb)
+        fileFilter(file, cb);
     }
 });
 
@@ -32,7 +32,7 @@ module.exports = {
         getPosts((err, results) => {
             if (err) {
                 console.log(err);
-                return
+                return;
             }
 
             return res.json({
@@ -80,7 +80,7 @@ module.exports = {
 
             if(err){
                 console.log(err);
-                return
+                return;
             }
 
             if(!results){
@@ -181,7 +181,7 @@ module.exports = {
                     message: "Post has been successfully added."
                 });
 
-            })
+            });
 
         });
 
